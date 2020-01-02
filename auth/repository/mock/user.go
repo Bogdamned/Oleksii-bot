@@ -1,7 +1,7 @@
 package mock
 
 import (
-	"BotLeha/models"
+	"BotLeha/Oleksii-bot/models"
 	"context"
 
 	"github.com/stretchr/testify/mock"

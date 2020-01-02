@@ -1,7 +1,7 @@
 package http
 
 import (
-	"BotLeha/auth/usecase"
+	"BotLeha/Oleksii-bot/auth/usecase"
 	"bytes"
 	"encoding/json"
 	"net/http"

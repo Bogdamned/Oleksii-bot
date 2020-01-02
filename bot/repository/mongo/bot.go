@@ -1,7 +1,7 @@
 package mongo
 
 import (
-	"BotLeha/models"
+	"BotLeha/Oleksii-bot/models"
 	"context"
 
 	"go.mongodb.org/mongo-driver/bson/primitive"

@@ -1,7 +1,7 @@
 package auth
 
 import (
-	"BotLeha/models"
+	"BotLeha/Oleksii-bot/models"
 	"context"
 )
 

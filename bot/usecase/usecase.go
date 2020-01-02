@@ -1,7 +1,7 @@
 package usecase
 
 import (
-	"BotLeha/models"
+	"BotLeha/Oleksii-bot/models"
 )
 
 type BotUseCase struct {

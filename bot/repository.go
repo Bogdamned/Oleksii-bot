@@ -1,7 +1,7 @@
 package bot
 
 import (
-	"BotLeha/models"
+	"BotLeha/Oleksii-bot/models"
 	"context"
 )
 

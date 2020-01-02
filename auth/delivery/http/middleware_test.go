@@ -1,9 +1,9 @@
 package http
 
 import (
-	"BotLeha/auth"
-	"BotLeha/auth/usecase"
-	"BotLeha/models"
+	"BotLeha/Oleksii-bot/auth"
+	"BotLeha/Oleksii-bot/auth/usecase"
+	"BotLeha/Oleksii-bot/models"
 	"net/http"
 	"net/http/httptest"
 	"testing"

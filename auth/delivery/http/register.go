@@ -1,7 +1,7 @@
 package http
 
 import (
-	"BotLeha/auth"
+	"BotLeha/Oleksii-bot/auth"
 
 	"github.com/gin-gonic/gin"
 )
