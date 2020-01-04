@@ -1,6 +1,7 @@
 package server
 
 import (
+	"BotLeha/Oleksii-bot/bot"
 	"context"
 	"fmt"
 	"log"
@@ -19,6 +20,9 @@ import (
 	authhttp "BotLeha/Oleksii-bot/auth/delivery/http"
 	authmongo "BotLeha/Oleksii-bot/auth/repository/mongo"
 	authusecase "BotLeha/Oleksii-bot/auth/usecase"
+
+	botmongo "BotLeha/Oleksii-bot/bot/repository/mongo"
+	botusecase "BotLeha/Oleksii-bot/bot/usecase"
 )
 
 type App struct {
@@ -26,22 +30,27 @@ type App struct {
 
 	//bookmarkUC bookmark.UseCase
 	authUC auth.UseCase
+	botUC  bot.UseCase
 }
 
 func NewApp() *App {
 	db := initDB()
 
 	userRepo := authmongo.NewUserRepository(db, viper.GetString("mongo.user_collection"))
+	botRepo := botmongo.NewBotRepository(db, viper.GetString("mongo.bot_collection"))
+	botCfgRepo := botmongo.NewBotCfgRepository(db, viper.GetString("mongo.bot_cfg_collection"))
 	//bookmarkRepo := bmmongo.NewBookmarkRepository(db, viper.GetString("mongo.bookmark_collection"))
 
 	return &App{
-		// bookmarkUC: bmusecase.NewBookmarkUseCase(bookmarkRepo),
 		authUC: authusecase.NewAuthUseCase(
 			userRepo,
 			viper.GetString("auth.hash_salt"),
 			[]byte(viper.GetString("auth.signing_key")),
 			viper.GetDuration("auth.token_ttl"),
 		),
+		botUC: botusecase.NewBotUseCase(
+			botRepo,
+			botCfgRepo),
 	}
 }
 

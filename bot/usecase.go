@@ -6,19 +6,22 @@ import (
 )
 
 type UseCase interface {
-	Create(ctx context.Context, token string) error
-	Get(ctx context.Context, id string) (*models.Bot, error)
-	GetAll(ctx context.Context) ([]*models.Bot, error)
-	Update(ctx context.Context, bot *models.Bot) error
-	Delete(ctx context.Context, id string) error
+	// Bot CRUD
+	CreateBot(ctx context.Context, token string) error
+	GetBot(ctx context.Context, id string) (*models.Bot, error)
+	GetBots(ctx context.Context) ([]*models.Bot, error)
+	UpdateBot(ctx context.Context, bot *models.Bot) error
+	DeleteBot(ctx context.Context, id string) error
 
+	// Configuration CRUD
 	GetCfg(ctx context.Context, botID string) (*models.BotCfg, error)
 	UpdateCfg(ctx context.Context, cfg *models.BotCfg, botID string) error
 
-	Start()
-	Stop()
-	Restart()
+	// Engine
+	Start(ctx context.Context, botID string) error
+	Stop(ctx context.Context, botID string) error
+	Restart(ctx context.Context, botID string) error
 
-	SendMsg()
-	SendGroupMsg()
+	SendMsg(ctx context.Context, botID string) error
+	SendGroupMsg(ctx context.Context, botID string) error
 }

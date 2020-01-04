@@ -17,5 +17,5 @@ type Repository interface {
 //CfgRepository abstraction to work with bot settings
 type CfgRepository interface {
 	GetCfg(ctx context.Context, botID string) (*models.BotCfg, error)
-	UpsertCfg(ctx context.Context, botCfg models.BotCfg, botID string) error
+	UpsertCfg(ctx context.Context, botCfg *models.BotCfg, botID string) error
 }
